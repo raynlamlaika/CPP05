@@ -1,27 +1,78 @@
 
-#include "iostream"
+#include "Bureaucrat.hpp"
 
-
-class Bureaucrat
+Bureaucrat::Bureaucrat()
 {
-    private:
-        std::string name;
-        int grade;
-    
-    public:
-        Bureaucrat();
-        ~Bureaucrat();
-        Bureaucrat &operator=(const Bureaucrat &other);
-        Bureaucrat(const Bureaucrat &other);
+}
+
+Bureaucrat::~Bureaucrat()
+{
+
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    if (this != &other)
+    {
+        this->name = other.name;
+        this->grade = other.grade;
+    }
+    return (*this);
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &other)
+{
+    this->name = other.name;
+    this->grade = other.grade;
+}
 
 
 
-        void GradeTooHighException();
-        void GradeTooLowException();
-        int getGrade() const;
-        void setGrade();
-        std::string getName() const;
-        void setGrade();
-        void IncrementGrade();
-        void DecrementGrade();
+int Bureaucrat::getGrade() const
+{
+    return (this->grade);
+}
+
+void Bureaucrat::setGrade(unsigned int grade)
+{
+    this->grade = grade;
+}
+
+std::string Bureaucrat::getName()const
+{
+    return (this->name);
+}
+
+void Bureaucrat::setName(std::string name)
+{
+    this->name = name;
+}
+
+void Bureaucrat::IncrementGrade()
+{
+    if (grade > 1)
+    {
+        grade--;
+        std::cout << "Bureaucrat: pass the IncrementGrade for : " << name <<  std::endl;
+    }
+    else
+        throw Bureaucrat::GradeTooHighException();
+}
+
+void Bureaucrat::DecrementGrade()
+{
+    if (grade < 150)
+    {
+        grade++;
+        std::cout << "Bureaucrat: pass the DecrementGrade for : " << name <<  std::endl;
+    }
+    else
+        throw Bureaucrat::GradeTooHighException();
+}
+
+
+std::ostream& operator<<(std::ostream& os,const Bureaucrat &other)
+{
+    os << other.getName() << ", bureaucrat grade "  << other.getGrade();
+    return os;
 }
