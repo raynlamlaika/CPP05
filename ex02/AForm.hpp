@@ -17,7 +17,7 @@ public:
     Form();
     Form(const Form &other);
     Form &operator=(const Form &other);
-    ~Form();
+    virtual  ~Form();
 
 
 
@@ -48,7 +48,7 @@ public:
     
 
     //function to immplemment
-void beSigned(Bureaucrat &other);
+    virtual void beSigned(Bureaucrat &other) = 0;
 };
 
 
