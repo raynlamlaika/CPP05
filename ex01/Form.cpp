@@ -61,9 +61,6 @@ void  Form::beSigned(Bureaucrat &other)
     }
 }
 
-
-
-
 // overload <<
 
 std::ostream  &operator<<(std::ostream &os, const Form  &other)

@@ -1,6 +1,8 @@
 
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+
 
 Bureaucrat::Bureaucrat()
 {
@@ -73,7 +75,7 @@ void Bureaucrat::DecrementGrade()
         throw Bureaucrat::GradeTooHighException();
 }
 
-void Bureaucrat::signForm(Form& other) 
+void Bureaucrat::signForm(AForm& other)
 {
     try
     {

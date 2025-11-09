@@ -1,3 +1,5 @@
+
+
 #pragma once
 
 #include <iostream>
@@ -5,19 +7,19 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
     const std::string  Name;
-    bool         Flag;
+    bool               Flag;
     const unsigned int GradeToSign;
     const unsigned int GradeToExecute;
 public:
-    //orthodox form
-    Form();
-    Form(const Form &other);
-    Form &operator=(const Form &other);
-    virtual  ~Form();
+    //orthodox Aform
+    AForm();
+    AForm(const AForm &other);
+    AForm &operator=(const AForm &other);
+    virtual  ~AForm();
 
 
 
@@ -40,16 +42,17 @@ public:
     };
     
     // getters part
-    std::string  GetName()const;
-    bool         GetFlag()const;
-    unsigned int GetGradeToSign()const;
-    unsigned int GetGradeToExecute()const;
+    virtual std::string  GetName()const;
+    virtual bool         GetFlag()const;
+    virtual unsigned int GetGradeToSign()const;
+    virtual unsigned int GetGradeToExecute()const;
 
     
-
+    
     //function to immplemment
     virtual void beSigned(Bureaucrat &other) = 0;
+    // void execute(Bureaucrat const & executor) const;
 };
 
 
-std::ostream  &operator<<(std::ostream &os,const Form & other);
+std::ostream  &operator<<(std::ostream &os,const AForm & other);

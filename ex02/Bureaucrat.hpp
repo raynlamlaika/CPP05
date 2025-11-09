@@ -2,9 +2,9 @@
 //includes
 #pragma once
 #include "iostream"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -49,7 +49,7 @@ class Bureaucrat
         void DecrementGrade();
 
         //added
-        void signForm(Form& other) ;
+        void signForm(AForm& other) ;
 };
 
 

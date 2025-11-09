@@ -48,7 +48,7 @@ public:
     
 
     //function to immplemment
-void beSigned(Bureaucrat &other);
+    void beSigned(Bureaucrat &other);
 };
 
 

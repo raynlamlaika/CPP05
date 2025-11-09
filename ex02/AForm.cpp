@@ -1,45 +1,46 @@
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-//orthodox form
-Form::Form() :Name("chahada"), GradeToSign(150), GradeToExecute(1) 
+//orthodox Aform
+AForm::AForm() :Name("chahada"), GradeToSign(150), GradeToExecute(1) 
 {
     Flag = 0;
 }
-Form::Form(const Form &other) :Name("chahada"), GradeToSign(150), GradeToExecute(1) 
+
+AForm::AForm(const AForm &other) :Name("chahada"), GradeToSign(150), GradeToExecute(1) 
 {
     this->Flag = other.GetFlag();
 }
 
-Form &Form::operator=(const Form &other)
+AForm &AForm::operator=(const AForm &other)
 {
     this->Flag = other.GetFlag();
     return *this;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 
 }
 
 
 // getters part
-std::string Form::GetName()const
+std::string AForm::GetName()const
 {
     return(this->Name);
 }
 
-bool        Form::GetFlag() const
+bool        AForm::GetFlag() const
 {
     return (this->Flag);
 }
 
-unsigned int Form::GetGradeToSign()const
+unsigned int AForm::GetGradeToSign()const
 {
     return (this->GradeToSign);
 }
 
-unsigned int    Form::GetGradeToExecute()const
+unsigned int    AForm::GetGradeToExecute()const
 {
     return (this->GradeToExecute);
 }
@@ -48,7 +49,7 @@ unsigned int    Form::GetGradeToExecute()const
 
 
 //function to immplemment
-// void  Form::beSigned(Bureaucrat &other)
+// void  AForm::beSigned(Bureaucrat &other)
 // {
 //     if (other.getGrade() <= this->GradeToSign)
 //     {
@@ -57,7 +58,7 @@ unsigned int    Form::GetGradeToExecute()const
 //     }
 //     else
 //     {
-//         throw Form::GradeTooLowException();
+//         throw AForm::GradeTooLowException();
 //     }
 // }
 
@@ -66,8 +67,8 @@ unsigned int    Form::GetGradeToExecute()const
 
 // overload <<
 
-std::ostream  &operator<<(std::ostream &os, const Form  &other)
+std::ostream  &operator<<(std::ostream &os, const AForm  &other)
 {
-    os << "Form name :" << other.GetName() << " flag of the form is :" << other.GetFlag()<< " the grade needed to sign is: " << other.GetGradeToSign() << " the grade needed to execute is:" << other.GetGradeToExecute() ;
+    os << "AForm name :" << other.GetName() << " flag of the Aform is :" << other.GetFlag()<< " the grade needed to sign is: " << other.GetGradeToSign() << " the grade needed to execute is:" << other.GetGradeToExecute() ;
     return os;
 }
