@@ -14,11 +14,13 @@ private:
     bool               Flag;
     const unsigned int GradeToSign;
     const unsigned int GradeToExecute;
+    // bool               ExecutedForm;
 public:
     //orthodox Aform
     AForm();
     AForm(const AForm &other);
     AForm &operator=(const AForm &other);
+    AForm(std::string name , bool flag, unsigned int GradeToSign,unsigned int GradeToExecute);
     virtual  ~AForm();
 
 
@@ -47,11 +49,13 @@ public:
     virtual unsigned int GetGradeToSign()const;
     virtual unsigned int GetGradeToExecute()const;
 
-    
+    // setters
+    void SetFlag(bool flaged);
+
     
     //function to immplemment
     virtual void beSigned(Bureaucrat &other) = 0;
-    // void execute(Bureaucrat const & executor) const;
+    void execute(Bureaucrat const & executor) const;
 };
 
 

@@ -8,14 +8,16 @@ class Bureaucrat;
 class Form
 {
 private:
-    const std::string  Name;
-    bool         Flag;
-    const unsigned int GradeToSign;
-    const unsigned int GradeToExecute;
+    const std::string   Name;
+    bool                Flag;
+    const unsigned int  GradeToSign;
+    const unsigned int  GradeToExecute;
+
 public:
     //orthodox form
     Form();
     Form(const Form &other);
+    Form(std::string name , bool flag, unsigned int GradeToSign,unsigned int GradeToExecute);
     Form &operator=(const Form &other);
     ~Form();
 
@@ -38,14 +40,14 @@ public:
                 return "Grade Too Low Exception, can't pass the action\n";
             }
     };
-    
+
     // getters part
     std::string  GetName()const;
     bool         GetFlag()const;
     unsigned int GetGradeToSign()const;
     unsigned int GetGradeToExecute()const;
 
-    
+
 
     //function to immplemment
     void beSigned(Bureaucrat &other);

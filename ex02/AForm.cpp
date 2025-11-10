@@ -22,7 +22,10 @@ AForm::~AForm()
 {
 
 }
-
+AForm::AForm(std::string name , bool flag, unsigned int GradeToSign,unsigned int GradeToExecute):
+    Name(name) , Flag(flag), GradeToSign(GradeToSign), GradeToExecute(GradeToExecute)
+{
+}
 
 // getters part
 std::string AForm::GetName()const
@@ -45,22 +48,12 @@ unsigned int    AForm::GetGradeToExecute()const
     return (this->GradeToExecute);
 }
 
+//setters
 
-
-
-//function to immplemment
-// void  AForm::beSigned(Bureaucrat &other)
-// {
-//     if (other.getGrade() <= this->GradeToSign)
-//     {
-//         this->Flag = true;
-//         std::cout << "i can SIGN it, Flag is not TRUE" << std::endl;
-//     }
-//     else
-//     {
-//         throw AForm::GradeTooLowException();
-//     }
-// }
+void AForm::SetFlag(bool flaged)
+{
+    this->Flag = flaged;
+}
 
 
 
@@ -72,3 +65,20 @@ std::ostream  &operator<<(std::ostream &os, const AForm  &other)
     os << "AForm name :" << other.GetName() << " flag of the Aform is :" << other.GetFlag()<< " the grade needed to sign is: " << other.GetGradeToSign() << " the grade needed to execute is:" << other.GetGradeToExecute() ;
     return os;
 }
+
+
+//additial functions
+
+
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+    if (this->Flag && executor.getGrade() <= this->GradeToExecute)
+    {
+        std::cout << "Form atempting to execute" << std::endl;
+        // need to set the flag later  for the confirmetion of the execedF
+    }
+    else
+        throw AForm::GradeTooLowException() ;
+}
+
