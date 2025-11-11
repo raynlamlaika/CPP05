@@ -1,31 +1,38 @@
 
 #include "PresidentialPardonForm.hpp"
-
-// PresidentialPardonForm::PresidentialPardonForm(): Name("chahada"),Flag(0), GradeToSign(25), GradeToExecute(5) , informed(0)
+// ortodox form
 PresidentialPardonForm::PresidentialPardonForm(): AForm("default", false, 25, 5)
 {
     this->informed = false;
+    this->target = "default";
+}
+PresidentialPardonForm::PresidentialPardonForm(std::string _target): AForm("default", false, 25, 5)
+{
+    this->informed = false;
+    this->target = _target;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
+
+
+
+//  implemmentations
+
 void PresidentialPardonForm::beSigned(Bureaucrat &other)
 {
-    std::cout <<  "beru " <<other.getGrade()  << "  alo " << this->GetGradeToSign() << std::endl;
+
     if (other.getGrade() <= this->GetGradeToSign())
     {
-        // this->GetFlag() = true;
         SetFlag(true);
-        std::cout<< other.getName()  << " can SIGN it, Flag is not TRUE" << std::endl;
+        std::cout<< other.getName()  << " can SIGN it, Flag = TRUE" << std::endl;
     }
     else
         throw AForm::GradeTooLowException();
 
 }
-
-
 
 void PresidentialPardonForm::informs(Bureaucrat &other)
 {
@@ -33,11 +40,25 @@ void PresidentialPardonForm::informs(Bureaucrat &other)
     if (other.getGrade() <= this->GetGradeToExecute() && this->GetFlag())
     {
         this->informed = true;
-        std::cout << this->GetName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+        std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
     }
     else
+    {
         std::cout << "Form not sined yet OR the execetor have a low grade" << std::endl;
+        std::cout << "required grade: " <<this->GetGradeToExecute() << \
+        " your Bureaucrat grade " <<  other.getGrade() << std::endl;
 
+    }
 }
 
 
+
+// getters and setters
+std::string PresidentialPardonForm::getTarget() const
+{
+    return (this->target);
+}
+void PresidentialPardonForm::SetTarget(std::string _target)
+{
+    this->target = _target;
+}

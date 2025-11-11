@@ -10,6 +10,8 @@
 #include "RobotomyRequestForm.hpp" 
 #include "ShrubberyCreationForm.hpp"
 
+
+
 int main ()
 {
     Bureaucrat* first = new Bureaucrat();
@@ -47,8 +49,50 @@ int main ()
 
 
 
+    ShrubberyCreationForm *good = new ShrubberyCreationForm();
+    first->signForm(*good);
+    good->createShrubbery(*first);
+    RobotomyRequestForm *eee = new RobotomyRequestForm();
+    eee->beSigned(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
+    eee->robotomized(*first);
 
 
+    PresidentialPardonForm* maki = new PresidentialPardonForm();
+    maki->informs(*first);
+    maki->informs(*first);
+    maki->informs(*first);
+    maki->informs(*first);
+    maki->beSigned(*first);
+    maki->informs(*first);
+    maki->informs(*first);
+    maki->informs(*first);
+    maki->informs(*first);
+    first->IncrementGrade();
+    first->IncrementGrade();
+    first->IncrementGrade();
+    first->IncrementGrade();
+    maki->informs(*first);
+    maki->informs(*first);
+    maki->informs(*first);
+    maki->informs(*first);
 
 }
 
