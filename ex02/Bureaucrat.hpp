@@ -47,10 +47,10 @@ class Bureaucrat
         //functions
         void IncrementGrade();
         void DecrementGrade();
+        void executeForm(AForm const & form) const;
 
         //added
         void signForm(AForm& other) ;
-        void executeForm(AForm const & form) const;
 };
 
 

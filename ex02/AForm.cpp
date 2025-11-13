@@ -70,15 +70,15 @@ std::ostream  &operator<<(std::ostream &os, const AForm  &other)
 //additial functions
 
 
-
-void AForm::execute(Bureaucrat const & executor) const
+int AForm::execute(Bureaucrat const & executor) const
 {
     if (this->Flag && executor.getGrade() <= this->GradeToExecute)
     {
         std::cout << "Form atempting to execute" << std::endl;
-        // need to set the flag later  for the confirmetion of the execedF
+        return 1;
     }
     else
         throw AForm::GradeTooLowException() ;
+    return 0;
 }
 

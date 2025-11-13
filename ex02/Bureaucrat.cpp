@@ -106,16 +106,15 @@ std::ostream& operator<<(std::ostream& os,const Bureaucrat &other)
 
 void  Bureaucrat::executeForm(AForm const & form) const
 {
-    if (1) // check if it all ready executed
-    {
-        std::cout << this->getName() << "reatchout that "<< this->getName() <<" all ready executed"<< std::endl;
-    }
-    else if (form.GetGradeToExecute() >= this->getGrade())
-    {
-        
+    // try catch 
+    try {
+        form.execute(*this);
+        std::cout << this->name << " executed " << form.GetName() << std::endl;
 
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
     }
 
 }
-
-
