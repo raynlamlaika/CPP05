@@ -1,8 +1,9 @@
 
 #pragma once
 #include "iostream"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Intern
 {
@@ -13,6 +14,6 @@ public:
     ~Intern();
 
     // functions
-    void makeForm(std::string name, Form target);
+    AForm* makeForm(std::string name, std::string target);
 };
 
