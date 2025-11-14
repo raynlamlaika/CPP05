@@ -11,8 +11,8 @@ Form::Form(const Form &other) :Name("chahada"), GradeToSign(150), GradeToExecute
     this->Flag = other.GetFlag();
 }
 
-Form::Form(std::string name , bool flag, unsigned int GradeToSign,unsigned int GradeToExecute):
-    Name(name) , Flag(flag), GradeToSign(GradeToSign), GradeToExecute(GradeToExecute)
+Form::Form(std::string name ,  unsigned int GradeToSign,unsigned int GradeToExecute):
+    Name(name) , Flag(false), GradeToSign(GradeToSign), GradeToExecute(GradeToExecute)
 {
 }
 

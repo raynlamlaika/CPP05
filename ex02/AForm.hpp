@@ -54,8 +54,8 @@ public:
 
     
     //function to immplemment
-    virtual void beSigned(Bureaucrat &other) = 0;
-    int execute(Bureaucrat const & executor) const;
+    void beSigned(Bureaucrat &other);
+    virtual int execute(Bureaucrat const & ) = 0;
 };
 
 

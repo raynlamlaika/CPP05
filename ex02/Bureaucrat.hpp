@@ -21,21 +21,15 @@ class Bureaucrat
 
 
         // exceptions part
-        class GradeTooHighException : public std::exception
+        class GradeTooHighException : public std::exception // implemetntaion forbiden
         {
             public:
-                const char* what() const throw()
-                {
-                    return "Grade Too High Exception, can't pass the action\n";
-                }
+                const char* what() const throw();
         };
         class GradeTooLowException : public std::exception
         {
             public:
-                const char* what() const throw()
-                {
-                    return "Grade Too Low Exception, can't pass the action\n";
-                }
+                const char* what() const throw();
         };
 
         //getters and setters
@@ -47,7 +41,7 @@ class Bureaucrat
         //functions
         void IncrementGrade();
         void DecrementGrade();
-        void executeForm(AForm const & form) const;
+        void executeForm(AForm  & form) const;
 
         //added
         void signForm(AForm& other) ;

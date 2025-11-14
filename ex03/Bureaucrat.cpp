@@ -13,6 +13,16 @@ Bureaucrat::~Bureaucrat()
 
 }
 
+const char * Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Grade Too High Exception, can't pass the action\n";
+}
+
+const char * Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade Too High Exception, can't pass the action\n";
+}
+
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
     if (this != &other)
@@ -104,7 +114,7 @@ std::ostream& operator<<(std::ostream& os,const Bureaucrat &other)
 
 
 
-void  Bureaucrat::executeForm(AForm const & form) const
+void  Bureaucrat::executeForm(AForm  & form) const
 {
     // try catch 
     try {

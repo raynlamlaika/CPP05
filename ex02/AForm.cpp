@@ -7,7 +7,7 @@ AForm::AForm() :Name("chahada"), GradeToSign(150), GradeToExecute(1)
     Flag = 0;
 }
 
-AForm::AForm(const AForm &other) :Name("chahada"), GradeToSign(150), GradeToExecute(1) 
+AForm::AForm(const AForm &other) : Name(other.Name), GradeToSign(150), GradeToExecute(1) 
 {
     this->Flag = other.GetFlag();
 }
@@ -68,17 +68,28 @@ std::ostream  &operator<<(std::ostream &os, const AForm  &other)
 
 
 //additial functions
-
-
-int AForm::execute(Bureaucrat const & executor) const
+void  AForm::beSigned(Bureaucrat &other)
 {
-    if (this->Flag && executor.getGrade() <= this->GradeToExecute)
+    if (other.getGrade() <= this->GradeToSign)
     {
-        std::cout << "Form atempting to execute" << std::endl;
-        return 1;
+        this->Flag = true;
+        std::cout << "i can SIGN it, Flag is not TRUE" << std::endl;
     }
     else
-        throw AForm::GradeTooLowException() ;
-    return 0;
+    {
+        throw AForm::GradeTooLowException();
+    }
 }
+
+// int AForm::execute(Bureaucrat const & executor) const
+// {
+//     if (this->Flag && executor.getGrade() <= this->GradeToExecute)
+//     {
+//         std::cout << "Form atempting to execute" << std::endl;
+//         return 1;
+//     }
+//     else
+//         throw AForm::GradeTooLowException() ;
+//     return 0;
+// }
 

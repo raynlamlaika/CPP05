@@ -11,20 +11,18 @@ private:
     std::string         target;
 
 
-
 public:
     PresidentialPardonForm();
     PresidentialPardonForm(std::string _target);
     ~PresidentialPardonForm();
 
-    void informs(Bureaucrat &other);
+    // void informs(Bureaucrat &other);
+    int execute(Bureaucrat const & executor);
     void beSigned(Bureaucrat &other);
 
     //getters/ setters
     std::string getTarget() const;
     void SetTarget(std::string _target);
-
-
 };
 
 

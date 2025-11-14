@@ -9,7 +9,7 @@ class Form;
 class Bureaucrat
 {
     private:
-        std::string name;
+        const std::string name;
         unsigned int grade;
     
     public:
@@ -17,6 +17,7 @@ class Bureaucrat
         Bureaucrat();
         ~Bureaucrat();
         Bureaucrat &operator=(const Bureaucrat &other);
+        Bureaucrat(std::string name, unsigned int garde);
         Bureaucrat(const Bureaucrat &other);
 
 
@@ -42,7 +43,7 @@ class Bureaucrat
         unsigned int getGrade() const;
         void setGrade(unsigned int grade);
         std::string getName() const;
-        void setName(std::string name );
+        // void setName(std::string name );
 
         //functions
         void IncrementGrade();

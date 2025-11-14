@@ -20,7 +20,7 @@ public:
 
 
     void beSigned(Bureaucrat &other);
-    int createShrubbery(Bureaucrat &other);
+    int execute(Bureaucrat const & other);
 
     std::string getTarget() const;
     void SetTarget(std::string _target);

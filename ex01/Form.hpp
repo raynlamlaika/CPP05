@@ -17,7 +17,7 @@ public:
     //orthodox form
     Form();
     Form(const Form &other);
-    Form(std::string name , bool flag, unsigned int GradeToSign,unsigned int GradeToExecute);
+    Form(std::string name , unsigned int GradeToSign,unsigned int GradeToExecute); // 
     Form &operator=(const Form &other);
     ~Form();
 

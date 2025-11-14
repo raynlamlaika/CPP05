@@ -2,10 +2,18 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(): name("default")
 {
 }
 
+Bureaucrat::Bureaucrat(std::string name, unsigned int grade): name(name)
+{
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else if (grade < 1)
+        Bureaucrat::GradeTooHighException();
+    this->grade = grade;
+}
 Bureaucrat::~Bureaucrat()
 {
 
@@ -15,19 +23,17 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
     if (this != &other)
     {
-        this->name = other.name;
         this->grade = other.grade;
     }
     return (*this);
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat &other): name(other.name)
 {
-    this->name = other.name;
     this->grade = other.grade;
 }
 
-// getters and sters
+
 
 unsigned int Bureaucrat::getGrade() const
 {
@@ -36,6 +42,10 @@ unsigned int Bureaucrat::getGrade() const
 
 void Bureaucrat::setGrade(unsigned int grade)
 {
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else if (grade < 1)
+        Bureaucrat::GradeTooHighException();
     this->grade = grade;
 }
 
@@ -44,13 +54,11 @@ std::string Bureaucrat::getName()const
     return (this->name);
 }
 
-void Bureaucrat::setName(std::string name)
-{
-    this->name = name;
-}
+// void Bureaucrat::setName(std::string name)
+// {
+//     this->name = name;
+// }
 
-
-// functions implemmentation 
 void Bureaucrat::IncrementGrade()
 {
     if (grade > 1)
@@ -70,8 +78,9 @@ void Bureaucrat::DecrementGrade()
         std::cout << "Bureaucrat: pass the DecrementGrade for : " << name <<  std::endl;
     }
     else
-        throw Bureaucrat::GradeTooHighException();
+        throw Bureaucrat::GradeTooLowException();
 }
+
 
 void Bureaucrat::signForm(Form& other) 
 {

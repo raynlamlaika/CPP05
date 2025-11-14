@@ -34,21 +34,22 @@ void PresidentialPardonForm::beSigned(Bureaucrat &other)
 
 }
 
-void PresidentialPardonForm::informs(Bureaucrat &other)
+// void PresidentialPardonForm::informs(Bureaucrat &other)
+int PresidentialPardonForm::execute(Bureaucrat const & other)
 {
 
     if (other.getGrade() <= this->GetGradeToExecute() && this->GetFlag())
     {
-        this->informed = true;
         std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
     }
     else
     {
-        std::cout << "Form not sined yet OR the execetor have a low grade" << std::endl;
+        // std::cout << "Form not sined yet OR the execetor have a low grade" << std::endl;
         std::cout << "required grade: " <<this->GetGradeToExecute() << \
         " your Bureaucrat grade " <<  other.getGrade() << std::endl;
 
     }
+    return 1;
 }
 
 

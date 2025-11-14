@@ -22,7 +22,9 @@ public:
     RobotomyRequestForm(const RobotomyRequestForm &other);
 
     void beSigned(Bureaucrat &other);
-    void robotomized(Bureaucrat &other);
+    
+    // void robotomized(Bureaucrat &other);
+    int execute(Bureaucrat const & other);
 
     //getters/ setters
     std::string getTarget() const;

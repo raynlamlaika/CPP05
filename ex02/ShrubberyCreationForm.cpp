@@ -20,6 +20,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 
 // implementation form 
+
 void ShrubberyCreationForm::beSigned(Bureaucrat &other)
 {
     if (other.getGrade() <= this->GetGradeToSign())
@@ -33,8 +34,7 @@ void ShrubberyCreationForm::beSigned(Bureaucrat &other)
     }
 }
 
-
-int ShrubberyCreationForm::createShrubbery(Bureaucrat &other)
+int ShrubberyCreationForm::execute(Bureaucrat const & other)
 {
 
     if (other.getGrade() <= this->GetGradeToExecute() && this->GetFlag())

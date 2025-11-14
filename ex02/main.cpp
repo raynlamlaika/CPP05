@@ -45,54 +45,54 @@ int main ()
         std::cerr << e.what() << '\n';
     }
 
-   sec->informs(*first);
+   sec->execute(*first);
 
 
 
     ShrubberyCreationForm *good = new ShrubberyCreationForm();
     first->signForm(*good);
-    good->createShrubbery(*first);
+    good->execute(*first);
     RobotomyRequestForm *eee = new RobotomyRequestForm();
     eee->beSigned(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
-    eee->robotomized(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
+    eee->execute(*first);
 
 
     PresidentialPardonForm* maki = new PresidentialPardonForm();
-    maki->informs(*first);
-    maki->informs(*first);
-    maki->informs(*first);
-    maki->informs(*first);
+    maki->execute(*first);
+    maki->execute(*first);
+    maki->execute(*first);
+    maki->execute(*first);
     maki->beSigned(*first);
-    maki->informs(*first);
-    maki->informs(*first);
-    maki->informs(*first);
-    maki->informs(*first);
+    maki->execute(*first);
+    maki->execute(*first);
+    maki->execute(*first);
+    maki->execute(*first);
     first->IncrementGrade();
     first->IncrementGrade();
     first->IncrementGrade();
     first->IncrementGrade();
-    maki->informs(*first);
-    maki->informs(*first);
-    maki->informs(*first);
-    maki->informs(*first);
+    maki->execute(*first);
+    maki->execute(*first);
+    maki->execute(*first);
+    maki->execute(*first);
 
 }
 

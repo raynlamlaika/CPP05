@@ -34,7 +34,11 @@ void RobotomyRequestForm::beSigned(Bureaucrat &other)
     }
 }
 
-void RobotomyRequestForm::robotomized(Bureaucrat &other)
+// robotomized(Bureaucrat &other)
+
+
+
+int RobotomyRequestForm::execute(Bureaucrat const & other)
 {
     const int RandomValue = std::rand();
     if (other.getGrade() <= this->GetGradeToExecute() && this->GetFlag())
@@ -57,7 +61,7 @@ void RobotomyRequestForm::robotomized(Bureaucrat &other)
     else
         std::cout << "Form not sined yet OR the execetor have a low grade" << std::endl;
 
-
+    return 0;
 }
 
 

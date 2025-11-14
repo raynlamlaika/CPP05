@@ -6,34 +6,30 @@
 class Bureaucrat
 {
     private:
-        std::string  name;
+        const std::string  name;
         unsigned int grade;
     
     public:
         Bureaucrat();
         ~Bureaucrat();
+        Bureaucrat(std::string name, unsigned int garde);
         Bureaucrat &operator=(const Bureaucrat &other);
         Bureaucrat(const Bureaucrat &other);
 
         class GradeTooHighException : public std::exception
         {
             public:
-                const char* what() const throw()
-                {
-                    return "Grade Too High Exception, can't pass the action\n";
-                }
+                const char* what() const throw();
         };
+
         class GradeTooLowException : public std::exception
         {
             public:
-                const char* what() const throw()
-                {
-                    return "Grade Too Low Exception, can't pass the action\n";
-                }
+                const char* what() const throw();
         };
 
-        int getGrade() const;
-        void setName(std::string name );
+        unsigned int getGrade() const;
+        // void setName(std::string name );
 
         void setGrade(unsigned int grade);
         std::string getName() const;
