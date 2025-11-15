@@ -14,6 +14,10 @@ Intern::~Intern()
 {
 }
 
+Intern &Intern::operator=(const Intern &other)
+{
+}
+
 void printerr(std::string str)
 {
     std::cerr << str << std::endl;

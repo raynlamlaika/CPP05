@@ -3,12 +3,12 @@
 #include "ShrubberyCreationForm.hpp"
 
 // orthodox form
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", false, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137)
 {
     this->target = "Default";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _target): AForm("ShrubberyCreationForm", false, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string _target): AForm("ShrubberyCreationForm", 145, 137)
 {
    this->target = _target;
 }

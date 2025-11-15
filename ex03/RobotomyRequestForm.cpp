@@ -18,6 +18,11 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+    this->Robotzed = other.Robotzed;
+    this->target = other.target;
+}
 
 //  functions to implemmente
 void RobotomyRequestForm::beSigned(Bureaucrat &other)

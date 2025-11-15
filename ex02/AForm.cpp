@@ -22,8 +22,8 @@ AForm::~AForm()
 {
 
 }
-AForm::AForm(std::string name , bool flag,const unsigned int GradeToSign,const unsigned int GradeToExecute):
-    Name(name) , Flag(flag), GradeToSign(GradeToSign), GradeToExecute(GradeToExecute)
+AForm::AForm(std::string name , const unsigned int GradeToSign,const unsigned int GradeToExecute):
+    Name(name) , Flag(false), GradeToSign(GradeToSign), GradeToExecute(GradeToExecute)
 {
 }
 

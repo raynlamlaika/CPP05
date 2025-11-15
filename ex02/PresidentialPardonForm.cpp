@@ -1,12 +1,12 @@
 
 #include "PresidentialPardonForm.hpp"
 // ortodox form
-PresidentialPardonForm::PresidentialPardonForm(): AForm("default", false, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(): AForm("default", 25, 5)
 {
     this->informed = false;
     this->target = "default";
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string _target): AForm("default", false, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string _target): AForm("default", 25, 5)
 {
     this->informed = false;
     this->target = _target;

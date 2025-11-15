@@ -17,6 +17,12 @@ PresidentialPardonForm::~PresidentialPardonForm()
 }
 
 
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+{
+    this->informed = other.informed;
+    this->target = other.target;
+    return (*this);
+}
 
 
 //  implemmentations

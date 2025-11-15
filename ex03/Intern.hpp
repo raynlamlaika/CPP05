@@ -11,6 +11,7 @@ private:
     
 public:
     Intern();
+    Intern &operator=(const Intern &other);
     ~Intern();
 
     // functions

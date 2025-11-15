@@ -20,7 +20,7 @@ public:
     AForm();
     AForm(const AForm &other);
     AForm &operator=(const AForm &other);
-    AForm(std::string name , bool flag, unsigned int GradeToSign,unsigned int GradeToExecute);
+    AForm(std::string name , unsigned int GradeToSign,unsigned int GradeToExecute);
     virtual  ~AForm();
 
 

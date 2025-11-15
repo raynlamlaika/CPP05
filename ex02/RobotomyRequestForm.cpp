@@ -5,11 +5,11 @@
 
 //  orthodox Form
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", false, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45)
 {
     this->Robotzed = false;
 }
-RobotomyRequestForm::RobotomyRequestForm(std::string _target): AForm("RobotomyRequestForm", false, 145, 137)
+RobotomyRequestForm::RobotomyRequestForm(std::string _target): AForm("RobotomyRequestForm", 145, 137)
 {
    this->target = _target;
 }
