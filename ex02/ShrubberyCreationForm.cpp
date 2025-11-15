@@ -18,6 +18,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
+{
+    this->target = other.target;
+}
 
 // implementation form 
 

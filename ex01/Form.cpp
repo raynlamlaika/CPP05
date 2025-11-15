@@ -2,7 +2,7 @@
 #include "Form.hpp"
 
 //orthodox form
-Form::Form() :Name("chahada"), GradeToSign(150), GradeToExecute(1) 
+Form::Form() :Name("formula"), GradeToSign(150), GradeToExecute(1) 
 {
     Flag = 0;
 }
@@ -58,7 +58,7 @@ void  Form::beSigned(Bureaucrat &other)
     if (other.getGrade() <= this->GradeToSign)
     {
         this->Flag = true;
-        std::cout << "i can SIGN it, Flag is not TRUE" << std::endl;
+        std::cout << "i can SIGN it, Flag is now TRUE" << std::endl;
     }
     else
     {
@@ -66,10 +66,12 @@ void  Form::beSigned(Bureaucrat &other)
     }
 }
 
-// overload <<
 
 std::ostream  &operator<<(std::ostream &os, const Form  &other)
 {
-    os << "Form name :" << other.GetName() << " flag of the form is :" << other.GetFlag()<< " the grade needed to sign is: " << other.GetGradeToSign() << " the grade needed to execute is:" << other.GetGradeToExecute() ;
+    if (other.GetFlag())
+        os << "Form name :" << other.GetName() << " flag of the form is : True, the grade needed to sign is: " << other.GetGradeToSign() << " the grade needed to execute is:" << other.GetGradeToExecute() ;
+    else
+        os << "Form name :" << other.GetName() << " flag of the form is : False, the grade needed to sign is: " << other.GetGradeToSign() << " the grade needed to execute is:" << other.GetGradeToExecute() ;
     return os;
 }

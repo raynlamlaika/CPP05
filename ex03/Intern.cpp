@@ -26,14 +26,15 @@ AForm* Intern::makeForm(std::string name, std::string target)
         printerr("argement is empty or null, you CAN'T do that");
         return NULL;
     }
-    std::string forms[4] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
+    std::string forms[4] = {"presidential pardonForm", "robotomy requestForm", "shrubbery creationForm"};
     
     int index = 0;
     while (forms[index] != name && index <= 3)
     {
+        if (strcmp(forms[index].c_str(), name.c_str()))
+            break;
         index++;
     }
-    // std::cout << "this is the index: " << index<< forms[index] << ":<--- so this is the form index"<< std::endl;
     switch(index)
     {
         case 1:

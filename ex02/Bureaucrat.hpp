@@ -16,6 +16,7 @@ class Bureaucrat
         //orthodox form
         Bureaucrat();
         ~Bureaucrat();
+        Bureaucrat(std::string name, unsigned int grade);
         Bureaucrat &operator=(const Bureaucrat &other);
         Bureaucrat(const Bureaucrat &other);
 

@@ -81,15 +81,3 @@ void  AForm::beSigned(Bureaucrat &other)
     }
 }
 
-// int AForm::execute(Bureaucrat const & executor) const
-// {
-//     if (this->Flag && executor.getGrade() <= this->GradeToExecute)
-//     {
-//         std::cout << "Form atempting to execute" << std::endl;
-//         return 1;
-//     }
-//     else
-//         throw AForm::GradeTooLowException() ;
-//     return 0;
-// }
-

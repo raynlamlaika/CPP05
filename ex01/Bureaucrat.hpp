@@ -43,7 +43,6 @@ class Bureaucrat
         unsigned int getGrade() const;
         void setGrade(unsigned int grade);
         std::string getName() const;
-        // void setName(std::string name );
 
         //functions
         void IncrementGrade();

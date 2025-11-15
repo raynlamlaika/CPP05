@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade): name(name)
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     else if (grade < 1)
-        Bureaucrat::GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
     this->grade = grade;
 }
 Bureaucrat::~Bureaucrat()
@@ -45,7 +45,7 @@ void Bureaucrat::setGrade(unsigned int grade)
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     else if (grade < 1)
-        Bureaucrat::GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
     this->grade = grade;
 }
 
@@ -54,10 +54,6 @@ std::string Bureaucrat::getName()const
     return (this->name);
 }
 
-// void Bureaucrat::setName(std::string name)
-// {
-//     this->name = name;
-// }
 
 void Bureaucrat::IncrementGrade()
 {
@@ -91,13 +87,15 @@ void Bureaucrat::signForm(Form& other)
     }
     catch (std::exception &e)
     {
-        std::cout  << this->getName() << " couldn’t sign " << other.GetName() \
-        <<  " because " << e.what() << std::endl;
+        std::cerr  << this->getName() << " couldn’t sign " << other.GetName() \
+        <<  " because " << e.what();
     }
 }
 
 
-// overload
+// overload we cant ovload it inside the class, we dont have the frined function access
+// and also if we define it we need to pass only one argemment so it will reverse the oerder
+// of the streaming os
 
 std::ostream& operator<<(std::ostream& os,const Bureaucrat &other)
 {

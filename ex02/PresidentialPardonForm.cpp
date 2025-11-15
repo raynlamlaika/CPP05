@@ -12,6 +12,13 @@ PresidentialPardonForm::PresidentialPardonForm(std::string _target): AForm("defa
     this->target = _target;
 }
 
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+{
+    this->informed = other.informed;
+    this->target = other.target;
+    return (*this);
+}
+
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
@@ -59,6 +66,7 @@ std::string PresidentialPardonForm::getTarget() const
 {
     return (this->target);
 }
+
 void PresidentialPardonForm::SetTarget(std::string _target)
 {
     this->target = _target;

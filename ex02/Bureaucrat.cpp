@@ -4,8 +4,17 @@
 #include "AForm.hpp"
 
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(): name("default"), grade(100)
 {
+}
+
+Bureaucrat::Bureaucrat(std::string name, unsigned int grade): name(name)
+{
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    this->grade = grade;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -56,10 +65,15 @@ std::string Bureaucrat::getName()const
     return (this->name);
 }
 
-void Bureaucrat::setName(std::string name)
+void Bureaucrat::setGrade(unsigned int grade)
 {
-    this->name = name;
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    this->grade = grade;
 }
+
 
 
 // functions implemmentation 

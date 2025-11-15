@@ -6,12 +6,18 @@
 
 int main()
 {
-    Bureaucrat *first = new Bureaucrat("dib", 3); 
-    // first->setName("rayane");
+    try
+    {
+        Bureaucrat *r = new Bureaucrat("dib", 1000); 
+        std::cout << r ;
+    }
+    catch(const std::exception& e)
+    {
+       std::cout << "can't creat the" << e.what();
+    }
     
+    Bureaucrat *first = new Bureaucrat("dib", 100); 
     
-    // first->IncrementGrade();
-    // first->IncrementGrade();
     std::cout << *first << std::endl;
     try
     {

@@ -29,7 +29,6 @@ class Bureaucrat
         };
 
         unsigned int getGrade() const;
-        // void setName(std::string name );
 
         void setGrade(unsigned int grade);
         std::string getName() const;
