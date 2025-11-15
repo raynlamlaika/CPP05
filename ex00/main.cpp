@@ -1,9 +1,6 @@
 #include "Bureaucrat.hpp"
 
 
-
-
-
 int main()
 {
     try
@@ -64,3 +61,4 @@ int main()
     delete first;
     return 0;
 }
+

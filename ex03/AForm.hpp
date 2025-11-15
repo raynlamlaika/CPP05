@@ -29,18 +29,12 @@ public:
     class GradeTooHighException : public std::exception
     {
         public:
-            const char* what() const throw()
-            {
-                return "Grade Too High Exception, can't pass the action\n";
-            }
+            const char* what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
         public:
-            const char* what() const throw()
-            {
-                return "Grade Too Low Exception, can't pass the action\n";
-            }
+            const char* what() const throw();
     };
     
     // getters part

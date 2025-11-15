@@ -81,3 +81,15 @@ void  AForm::beSigned(Bureaucrat &other)
     }
 }
 
+//  exceptions 
+const char * AForm::GradeTooHighException::what() const throw()
+{
+    return "Grade Too High Exception, can't pass the action\n";
+}
+
+const char * AForm::GradeTooLowException::what() const throw()
+{
+    return "Grade Too High Exception, can't pass the action\n";
+}
+
+

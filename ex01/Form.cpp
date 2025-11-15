@@ -2,11 +2,11 @@
 #include "Form.hpp"
 
 //orthodox form
-Form::Form() :Name("formula"), GradeToSign(150), GradeToExecute(1) 
+Form::Form() :Name("form_default"), GradeToSign(150), GradeToExecute(1) 
 {
     Flag = 0;
 }
-Form::Form(const Form &other) :Name("chahada"), GradeToSign(150), GradeToExecute(1) 
+Form::Form(const Form &other) :Name("form_default"), GradeToSign(150), GradeToExecute(1) 
 {
     this->Flag = other.GetFlag();
 }
@@ -75,3 +75,17 @@ std::ostream  &operator<<(std::ostream &os, const Form  &other)
         os << "Form name :" << other.GetName() << " flag of the form is : False, the grade needed to sign is: " << other.GetGradeToSign() << " the grade needed to execute is:" << other.GetGradeToExecute() ;
     return os;
 }
+
+
+//  exceptions 
+const char * Form::GradeTooHighException::what() const throw()
+{
+    return "Grade Too High Exception, can't pass the action\n";
+}
+
+const char * Form::GradeTooLowException::what() const throw()
+{
+    return "Grade Too High Exception, can't pass the action\n";
+}
+
+

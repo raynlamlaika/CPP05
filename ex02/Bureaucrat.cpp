@@ -19,7 +19,6 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade): name(name)
 
 Bureaucrat::~Bureaucrat()
 {
-
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
@@ -34,11 +33,8 @@ const char * Bureaucrat::GradeTooLowException::what() const throw()
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
-    if (this != &other)
-    {
-        this->name = other.name;
-        this->grade = other.grade;
-    }
+    this->name = other.name;
+    this->grade = other.grade;
     return (*this);
 }
 
@@ -53,11 +49,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other)
 unsigned int Bureaucrat::getGrade() const
 {
     return (this->grade);
-}
-
-void Bureaucrat::setGrade(unsigned int grade)
-{
-    this->grade = grade;
 }
 
 std::string Bureaucrat::getName()const

@@ -20,7 +20,7 @@ int main()
     catch (std::exception& e)
     {
 
-        std::cout << "errrror"  << std::endl;
+        std::cerr << "error" << e.what();
     }
 
 
