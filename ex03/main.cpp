@@ -19,6 +19,16 @@ typedef struct s_data
     int y;
 } t_data;
 
+
+typedef struct s_troll
+{
+    int id;
+    int x;
+    int harvest_power;
+    int y;
+    int movement_speed;
+} t_troll;
+
 int main()
 {
     int width;
@@ -34,7 +44,17 @@ int main()
         int  it  = line.find("0");
         if (it != string::npos)
             {shack_x = i; shack_y = (int)it;}
-        t_data tmp;
+        for (int i_s = 0  ; line.size() > i_s  ;i_s++)
+        {
+            if (line[i_s] == '1')
+            {
+                t_data tmp;
+                tmp.x = i_s;
+                tmp.y = i;
+                data_holder.push_back(tmp);
+            }
+        }
+        
         
 
     }
@@ -63,6 +83,7 @@ int main()
             cin >> type >> x >> y >> size >> health >> fruits >> cooldown; cin.ignore();
         }
         int trolls_count;
+        vector<t_troll> troll_data;
         cin >> trolls_count; cin.ignore();
         for (int i = 0; i < trolls_count; i++) {
             int id; // id to move specific troll
@@ -80,29 +101,49 @@ int main()
             int carry_iron;
             int carry_wood;
             cin >> id >> player >> x >> y >> movement_speed >> carry_capacity >> harvest_power >> chop_power >> carry_plum >> carry_lemon >> carry_apple >> carry_banana >> carry_iron >> carry_wood; cin.ignore();
+            if (player == 0)
+            {
+                t_troll tmp;
+                tmp.id = id;
+                tmp.x = x;
+                tmp.y = y;
+                tmp.movement_speed = movement_speed;
+                tmp.harvest_power = harvest_power;
+                troll_data.push_back(tmp);
+            }
+
+            
         }
 
-        // // Write an action using cout. DON'T FORGET THE "<< endl"
-        // // To debug: cerr << "Debug messages..." << endl;
-
-
-        // // valid actions:
-        // // MOVE <id> <x> <y>
-        // // HARVEST <id> - when you are on the same cell as a tree
-        // // DROP <id> - when you are next to your shack and carry items
-
-        // // search for the smallest path for  tree
-        // int i_tree = 0,z_tree = 0, y_tree = 0;
-
-
-
-        // // check bag if u can hold up more otherwise put the fruit in home
-
-
-
-
-
-
-        // cout << "MOVE 0 7 7" << endl;
+        // check if the troll is full of farming
+        if (shack_x != -1 && shack_y != -1)
+        {
+            cout << "MOVE " << troll_data[0].id << " " << shack_x << " " << shack_y << endl;
+        }
+        else
+        {
+            // if there is no shack move to the nearest tree
+            if (!data_holder.empty())
+            {
+                t_data nearest_tree = data_holder[0];
+                int min_distance = abs(nearest_tree.x) + abs(nearest_tree.y);
+                for (size_t i = 1; i < data_holder.size(); ++i)
+                {
+                    int distance = abs(data_holder[i].x) + abs(data_holder[i].y);
+                    if (distance < min_distance)
+                    {
+                        min_distance = distance;
+                        nearest_tree = data_holder[i];
+                    }
+                }
+                cout << "MOVE " << troll_data[0].id << " " << nearest_tree.x << " " << nearest_tree.y << endl;
+            }
+            else
+            {
+                // if there is no tree move to the center of the map
+                cout << "MOVE "<< troll_data[0].id << " " << width / 2 << " " << height / 2 << endl;
+            }
+        }
+       
     }
 }
